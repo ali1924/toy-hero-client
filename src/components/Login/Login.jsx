@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../images/login/login.svg';
 import { AuthContext } from '../Provider/AuthProvider';
 const Login = () => {
-    const { user,updateUser,signIn } = useContext(AuthContext);
-    // console.log(user);
-    // console.log(updateUser);
-    // const { displayName, email } = user;
-    // console.log(email, displayName);
+    const { user, signIn } = useContext(AuthContext);
+    // private route
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const handleLogin = (event) => {
@@ -15,7 +17,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        // console.log( email, password);
 
         signIn(email,password)
             .then(result => {
@@ -23,6 +25,7 @@ const Login = () => {
                 // console.log(user);
                 setSuccess('Successfully Login');
                 setError('');
+                navigate(from, { replace: true });
 
             })
             .catch(error => {

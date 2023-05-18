@@ -14,17 +14,23 @@ const ToyDetails = () => {
                         className='p-3 rounded-lg'
                     />
                 </figure>
-                <div className="card-body">
+                <div className="card-body ">
                     <h2 className="card-title">{toyName}</h2>
-                    <p>Price: ${price}</p>
-                    <p>Quantity: {quantity}</p>
-                    <p>Ratting: {rating}</p>
-                    <p>Description: <br />
-                        <span>{description}</span>
-                    </p>
-                    <h2>Seller: {sellerName}</h2>
-                    <p>Email: {email}</p>
+                    <div className='text-xl'>
+                        <p>Price: <span className='text-orange-500'>${price}</span></p>
+                        <p>Quantity: {quantity}</p>
+                        <p>Ratting: {rating}</p>
+                        <p>Description: <br />
+                            <span>{description}</span>
+                        </p>
+                        <h2>Seller: {sellerName}</h2>
+                        <p>Email: {email}</p>
+                    </div>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Go to back</button>
+                    </div>
                 </div>
+                
             </div>
         </div>
     );

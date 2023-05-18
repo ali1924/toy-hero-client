@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('logout successfully')
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            })
+    }
     const navItems =
         <>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/all-toys'>All Toys</Link></li>
-          <li><Link to='/my-toys'>My Toys</Link></li>
-          <li><Link to='/add-a-toy'>Add A Toy</Link></li>
           <li><Link to='/blog'>Blog</Link></li>
-          <li><Link to='/login'>Login</Link></li>
-          <li><Link to='/register'>Register</Link></li>
+           <li><Link to='/register'>Register</Link></li>
+            {
+                user?.email
+                    ? <>
+                        <li><Link to='/my-toys'>My Toys</Link></li>
+                        <li><Link to='/add-a-toy'>Add A Toy</Link></li>
+                        <li><button onClick={handleLogOut}>Logout</button></li>
+                    </>
+                    : <li><Link to='/login'>Login</Link></li>
+            }
         </>
     return (
         <div className="navbar bg-base-200">
@@ -35,6 +53,13 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                {
+                    user && <>
+                        <span className='text-2xl'
+                            title={`${user.displayName}`}
+                        >{user.email}</span>
+                    </>
+                }
                 <a className="btn">User Profile</a>
             </div>
         </div>

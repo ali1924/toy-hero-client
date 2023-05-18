@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../images/login/login.svg';
 import { AuthContext } from '../Provider/AuthProvider';
 const Login = () => {
-    const { user, signIn } = useContext(AuthContext);
+    const { user,updateUser,signIn } = useContext(AuthContext);
+    // console.log(user);
+    // console.log(updateUser);
+    // const { displayName, email } = user;
+    // console.log(email, displayName);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password);
@@ -15,39 +20,31 @@ const Login = () => {
         signIn(email,password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
+                setSuccess('Successfully Login');
+                setError('');
+
             })
             .catch(error => {
                 const errorMessage = error.message;
-                console.log(errorMessage);
+                // console.log(errorMessage);
+                setError(errorMessage);
+                setSuccess('');
         })
 
     }
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
-                <div className="w-1/2 mr-12">
-                    <img src={img} alt="" />
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div className="card-body">
-                        <h1 className="text-3xl text-center font-bold">Login</h1>
-                        <form onSubmit={handleLogin}>
+            <div className="hero-content lg:w-1/2 w-full">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 sm:min-w-full lg:min-w-[70%]">
+                    <div className="card-body sm:min-w-full lg:min-w-full">
+                        <h1 className="text-3xl font-bold">Login</h1>
+
+                        <span className='text-2xl text-green-500'>{success}</span>
+                        <span className='text-2xl text-red-600'>{error}</span>
+
+                        <form onSubmit={handleLogin} className='space-y-3 w-full'>
                             <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    name='name'
-                                    placeholder="Your name"
-                                    className="input input-bordered"
-                                />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
                                 <input
                                     type="text"
                                     name='email'
@@ -56,9 +53,6 @@ const Login = () => {
                                 />
                             </div>
                             <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
                                 <input
                                     type="text"
                                     name='password'
@@ -76,7 +70,7 @@ const Login = () => {
                         </form>
                         <p className='text-xl my-4 text-center'>New to Toy Hero?
                             <span className='text-orange-600 font-bold'>
-                                <Link to='/sign-up'> Sign Up</Link>
+                                <Link to='/register'>Register</Link>
                             </span>
                         </p>
                     </div>

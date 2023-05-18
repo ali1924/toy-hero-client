@@ -1,0 +1,23 @@
+.error-container {
+    text-align: center;
+}
+
+.error-container h1 {
+    font-size: 120px;
+    margin-bottom: 0;
+    color: salmon;
+    text-shadow: 2px 2px black;
+}
+
+.error-container p {
+    font-size: 120px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-shadow: 2px 2px orangered;
+}
+
+.btn-goHome {
+    /* text-decoration: none; */
+    color: purple;
+    font-size: 32px;
+}

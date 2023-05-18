@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-
+import './Blog.css';
 const Blog = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className='space-y-3'>
-            <h1 className=' text-5xl text-white text-bold rounded-md py-5'>Frequently Asked Questions</h1>
+        <div className='space-y-2 lg:space-y-4'>
+            <h1 className='xl-4xl lg:text-5xl text-white text-bold rounded-md  py-2 lg:py-5'>Frequently Asked Questions</h1>
             {/* Q---1 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-indigo-900 hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -17,7 +17,7 @@ const Blog = () => {
                     <p>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-indigo-900 text-2xl text-white text-bold group-focus:text-secondary-content">
+                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
                         <p>tabIndex={0} attribute is necessary to make the div focusable</p>
                     </div>
                 }
@@ -25,7 +25,7 @@ const Blog = () => {
             {/* Q-2 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-indigo-900 hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -34,7 +34,7 @@ const Blog = () => {
                     <p>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-indigo-900 text-2xl text-white text-bold group-focus:text-secondary-content">
+                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
                         <p>tabIndex={0} attribute is necessary to make the div focusable</p>
                     </div>
                 }
@@ -42,7 +42,7 @@ const Blog = () => {
             {/* Q-3 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-indigo-900 hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -51,7 +51,7 @@ const Blog = () => {
                     <p>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-indigo-900 text-2xl text-white text-bold group-focus:text-secondary-content">
+                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
                         <p>tabIndex={0} attribute is necessary to make the div focusable</p>
                     </div>
                 }
@@ -59,7 +59,7 @@ const Blog = () => {
             {/* Q-4 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-indigo-900 hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -68,7 +68,7 @@ const Blog = () => {
                     <p>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-indigo-900 text-2xl text-white text-bold group-focus:text-secondary-content">
+                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
                         <p>tabIndex={0} attribute is necessary to make the div focusable</p>
                     </div>
                 }

@@ -4,14 +4,14 @@ import img from '../../images/login/login.svg';
 import { AuthContext } from '../Provider/AuthProvider';
 const Login = () => {
     const { user, signIn } = useContext(AuthContext);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
     // private route
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
 
-    const [success, setSuccess] = useState('');
-    const [error, setError] = useState('');
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;

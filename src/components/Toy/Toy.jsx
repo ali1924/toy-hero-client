@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
-const Toy = ({ toy }) => {
+
+const Toy = ({ toy}) => {
     // console.log(toy);
-    const { sellerName, toyName, subcategory, price, quantity } = toy;
+    const { _id,sellerName, toyName, subcategory, price, quantity } = toy;
     return (
         <>
             <tr>
@@ -13,7 +14,9 @@ const Toy = ({ toy }) => {
                 <td>{price}</td>
                 <td>{quantity}</td>
                 <td>
-                    <Link to={`/toys/${toy._id}`}><button>Details</button></Link>
+                    <Link to={`/toys/${_id}`}>
+                        <button>Details</button>
+                    </Link>
                 </td>
             </tr>
         </>

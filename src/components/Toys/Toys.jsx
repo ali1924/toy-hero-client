@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Toy from '../Toy/Toy';
+import ToyDetails from '../ToyDetails/ToyDetails';
 
 const Toys = () => {
     const [toys, setToys] = useState([]);

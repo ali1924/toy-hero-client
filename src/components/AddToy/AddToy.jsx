@@ -1,13 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddToy = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user);
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const handleAddToy = (event) => {
         event.preventDefault();
         const form = event.target;
+        const sellerName = form.sellerName.value;
         const email = form.email.value;
-        const password = form.password.value;
+        const toyName = form.toyName.value;
+        const toyPhoto = form.toyPhoto.value;
+        const subcategory = form.subcategory.value;
+        const price = form.price.value;
+        const quantity = form.quantity.value;
+        const rating = form.rating.value;
+        const description = form.description.value;
+        const toyInfo = {
+            sellerName: user.displayName,
+            email:user.email,
+            toyName,
+            toyPhoto,
+            subcategory,
+            price,
+            quantity,
+            rating,
+            description,
+        }
+        fetch('http://localhost:5000/add-toy', {
+            method: "POST",
+            headers: {
+                'content-type':'application/json',
+            },
+            body: JSON.stringify(toyInfo),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -25,6 +57,7 @@ const AddToy = () => {
                                     <input
                                         type="name"
                                         name='sellerName'
+                                        defaultValue={user?.displayName}
                                         placeholder="Your name"
                                         className="input input-bordered"
                                     />
@@ -33,6 +66,7 @@ const AddToy = () => {
                                     <input
                                         type="email"
                                         name='email'
+                                        defaultValue={user?.email}
                                         placeholder="Your email"
                                         className="input input-bordered"
                                     />
@@ -48,7 +82,7 @@ const AddToy = () => {
                                 <div className="form-control lg:ml-2 lg:mb-3 mb-3">
                                     <input
                                         type="text"
-                                        name='photo'
+                                        name='toyPhoto'
                                         placeholder="Toy photo url"
                                         className="input input-bordered"
                                     />
@@ -89,6 +123,7 @@ const AddToy = () => {
                             <div className="form-control lg:mx-3 lg:mb-3 mb-3">
                                 <textarea
                                     className="textarea textarea-primary h-24" placeholder="Description"
+                                    name='description'
                                 ></textarea>
                             </div>
                             <div className="form-control mt-6 lg:mx-3">

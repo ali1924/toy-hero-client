@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
-const SocialLogin = ({ children }) => {
+const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
-    const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = ({children}) => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
@@ -22,8 +22,8 @@ const SocialLogin = ({ children }) => {
         <div>
             <div className="divider">OR</div>
             <div className='text-center'>
-                <button onClick={handleGoogleSignIn}>
-                    <img className='h-1/2' src={children} alt="" />
+                <button onClick={handleGoogleSignIn} className="btn btn-block">
+                    Sing Up with Google
                 </button>
             </div>
         </div>

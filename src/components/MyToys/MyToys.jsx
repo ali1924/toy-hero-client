@@ -13,7 +13,7 @@ const MyToys = () => {
                 console.log(data);
                 setMyToys(data);
         })
-    }, [user])
+    }, [user,url])
     // delete toy single data
     const handleDelete = (id) => {
         console.log('delete:', id);

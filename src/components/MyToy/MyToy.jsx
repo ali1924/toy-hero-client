@@ -12,7 +12,9 @@ const MyToy = ({ toy,handleDelete,handleUpdate}) => {
                 <td>{price}</td>
                 <td>{quantity}</td>
                 <td >
-                    <button onClick={()=>handleUpdate(_id)}>Update</button>
+                    <Link to={`/update-toy/${_id}`}>
+                        <button>Update</button>
+                    </Link>
                 </td>
                 <td>
                     <button onClick={() => handleDelete(_id)}>Delete</button>

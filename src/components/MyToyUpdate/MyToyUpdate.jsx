@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import MyToyUpdateInfo from '../MyToyUpdateInfo/MyToyUpdateInfo';
 const MyToyUpdate = () => {
     const { user, loading } = useContext(AuthContext);
     const myToy = useLoaderData();

@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import img from '../../images/login/login.svg';
+import googleImg from '../../assets/images/login/google.png'
 import { AuthContext } from '../Provider/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const Login = () => {
     const { user, signIn } = useContext(AuthContext);
     const [success, setSuccess] = useState('');
@@ -76,7 +77,9 @@ const Login = () => {
                                 <Link to='/register'>Register</Link>
                             </span>
                         </p>
+                        <SocialLogin>{googleImg}</SocialLogin>
                     </div>
+                    
 
                 </div>
 

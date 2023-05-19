@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+// import logo from '../../../assets/logo.png';
+import logo from '../../../assets/logo.jpg';
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
@@ -15,10 +17,10 @@ const NavBar = () => {
     }
     const navItems =
         <>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/toys'>All Toys</Link></li>
-          <li><Link to='/blog'>Blog</Link></li>
-           <li><Link to='/register'>Register</Link></li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/toys'>All Toys</Link></li>
+            <li><Link to='/blog'>Blog</Link></li>
+            <li><Link to='/register'>Register</Link></li>
             {
                 user?.email
                     ? <>
@@ -40,10 +42,16 @@ const NavBar = () => {
                         {
                             navItems
                         }
-                        <li><Link to='/profile' className='text-2xl '>User Profile</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl text-2xl ">Toy Hero</a>
+                <img
+                    className='w-24 h-12 bg-slate-300'
+                    src={logo}
+                    alt=""
+                />
+                <Link
+                    className="btn btn-ghost normal-case text-2xl"
+                >Toy Hero</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-2xl ">
@@ -52,15 +60,18 @@ const NavBar = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end text-2xl text-white">
-                {
-                    user && <>
-                        <span className=''
-                            title={`${user.displayName}`}
-                        >{user.email}</span>
-                    </>
-                }
-                <a className="btn text-2xl text-white">User Profile</a>
+            <div className="navbar-end text-2xl">
+                <div className="tooltip hover:tooltip-open tooltip-left" data-tip={user?.displayName}>
+                    {
+                        user && <div className="avatar">
+                            <div className="w-14 h-14 rounded-full tooltip hover:tooltip-open tooltip-left">
+                                <img
+                                    src="https://i.ibb.co/R6Z2nFM/55.jpg"
+                                />
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     );

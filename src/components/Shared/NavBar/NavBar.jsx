@@ -20,7 +20,6 @@ const NavBar = () => {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/toys'>All Toys</Link></li>
             <li><Link to='/blog'>Blog</Link></li>
-            <li><Link to='/register'>Register</Link></li>
             {
                 user?.email
                     ? <>

@@ -54,12 +54,12 @@ const router = createBrowserRouter([
                 path: '/my-toys',
                 element:<MyToys></MyToys>
 
-            },
-            {
-                path: '*',
-                element:<ErrorPage></ErrorPage>
             }
         ]
+    },
+    {
+        path: '*',
+        element:<ErrorPage></ErrorPage>
     }
 ])
 

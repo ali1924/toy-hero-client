@@ -57,7 +57,6 @@ const MyToys = () => {
                                 key={toy._id}
                                 toy={toy}
                                 handleDelete={handleDelete}
-                                handleUpdate={handleUpdate}
                             ></MyToy>)
                         }
                     </tbody>

@@ -13,7 +13,7 @@ const Toys = () => {
     }, [])
     // console.log(toys);
     return (
-        <div>
+        <div className='mb-8'>
             <h2 className='text-3xl text-center py-3 font-bold'>Our Awesome Toys</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table table-zebra w-full rounded-lg">

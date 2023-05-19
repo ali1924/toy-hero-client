@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const MyToy = ({ toy,handleDelete,handleUpdate}) => {
+const MyToy = ({ toy,handleDelete}) => {
     // console.log(toy);
     const { _id, sellerName, toyName, subcategory, price, quantity } = toy;
     return (

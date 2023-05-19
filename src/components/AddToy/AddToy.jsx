@@ -1,7 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const AddToy = () => {
+    useEffect(() => {
+        document.title = "Add a Toy | Toy Hero";
+    }, [])
     const { user } = useContext(AuthContext);
     console.log(user);
     const [success, setSuccess] = useState('');

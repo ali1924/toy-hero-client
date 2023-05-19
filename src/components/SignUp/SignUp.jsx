@@ -1,7 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 const SignUp = () => {
+    useEffect(() => {
+        document.title = "Register | Toy Hero";
+    }, [])
     const { createUser ,updateUser} = useContext(AuthContext);
     const [ error, setError ] = useState('');
     const [success, setSuccess ] = useState('');

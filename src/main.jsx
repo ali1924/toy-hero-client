@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>,
-  <div className='lg:px-12 px-6'>
+  <div className=''>
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
     </AuthProvider>

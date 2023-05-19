@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Blog.css';
 const Blog = () => {
+    useEffect(() => {
+        document.title = "Blog | Toy Hero";
+    }, [])
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className='space-y-2 lg:space-y-4'>
-            <h1 className='xl-4xl lg:text-5xl text-white text-bold rounded-md  py-2 lg:py-5'>Frequently Asked Questions</h1>
+        <div className='space-y-2 lg:space-y-3 bg-base-100 lg:px-28 px-2 pb-12'>
+            <h1 className='xl-4xl lg:text-5xl text-center text-bold rounded-md lg:py-5'>Frequently Asked Questions</h1>
             {/* Q---1 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-base-200 hover:bg-base-300 text-xl group-focus:text-text-black text-bold 
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
                  >
-                    <p>What is an access token and refresh token? How do they work and where should we store them on the client-side?</p>
-                    <p>{ isOpen?'Close':'Open'}</p>
+                    <p className='w-[92%]'>What is an access token and refresh token? How do they work and where should we store them on the client-side?</p>
+                    <p className='w-[8%] text-end'>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
+                    isOpen && <div className="collapse-content bg-base-200 text-xl text-black text-bold group-focus:text-text-black">
                         <p>
-                            Access Token: An access token is a credential that is used to access protected resources or perform certain actions on behalf of an authenticated user.The access token is included in each request to the server's protected resources to prove the user's identity and permissions. It contains information such as the user's identity and the granted permissions or scopes.
+                            <span className='text-accent text-bold'>Access Token:</span> <br />
+                             An access token is a credential that is used to access protected resources or perform certain actions on behalf of an authenticated user.The access token is included in each request to the server's protected resources to prove the user's identity and permissions. It contains information such as the user's identity and the granted permissions or scopes.
                         </p>
-                        <p className="divider"></p>
+                        <div className="divider border-1 bo"></div> 
                         <p>
-                            Refresh Token: A refresh token is a long-lived credential that is used to obtain a new access token when the current one expires. Unlike access tokens, refresh tokens are not meant to be included with each request to access protected resources. Instead, they are securely stored on the client-side, typically within a secure session or a token vault. When the access token expires, the client can use the refresh token to request a new access token from the authentication server without requiring the user to reauthenticate. 
+                            <span className='text-accent text-bold'>Refresh Token:</span> <br />
+                             A refresh token is a long-lived credential that is used to obtain a new access token when the current one expires. Unlike access tokens, refresh tokens are not meant to be included with each request to access protected resources. Instead, they are securely stored on the client-side, typically within a secure session or a token vault. When the access token expires, the client can use the refresh token to request a new access token from the authentication server without requiring the user to reauthenticate. 
                         </p>
                     </div>
                 }
@@ -31,18 +36,18 @@ const Blog = () => {
             {/* Q-2 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-base-200  hover:bg-base-300 text-xl  text-bold group-focus:text-black
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
                 >
-                    <p>Compare SQL and NoSQL databases?</p>
-                    <p>{ isOpen?'Close':'Open'}</p>
+                    <p className='w-[92%]'>Compare SQL and NoSQL databases?</p>
+                    <p className='w-[8%] text-end'>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
-                        <h3 className='py-2'>SQL</h3>
-                        <ul className='space-y-2'>
+                    isOpen && <div className="collapse-content bg-base-200 text-xl text-bold group-focus:text-black">
+                        <span className='text-accent text-bold'>SQL</span> <br />
+                        <ul className='space-y-3'>
                             <li>
                                 1. It's databases follow a structured data model with predefined schemas. They use tables to organize and store data, where each table has a fixed set of columns and rows. Relationships between tables are established using foreign keys.
                             </li>
@@ -57,8 +62,8 @@ const Blog = () => {
                             </li>
                         </ul>
                         <p className="divider"></p>
-                        <h3 className='py-2'>NoSQL</h3>
-                        <ul className='space-y-2'>
+                        <span className='text-accent text-bold'>NoSQL</span> <br />
+                        <ul className='space-y-3'>
                             <li>
                                 1.  It's databases offer a flexible and dynamic data model. They are schema-less and can store unstructured, semi-structured, or structured data. NoSQL databases use various data models, such as key-value, document, columnar, or graph, to store and retrieve data.
                             </li>
@@ -82,22 +87,24 @@ const Blog = () => {
             {/* Q-3 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-base-200 hover:bg-base-300 text-xl  text-bold group-focus:text-black
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
                 >
-                    <p>What is express js? What is Nest JS?</p>
-                    <p>{ isOpen?'Close':'Open'}</p>
+                    <p className='w-[92%]'>What is express js? What is Nest JS?</p>
+                    <p className='w-[8%] text-end'>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
-                        <p className='py-2'>
+                    isOpen && <div className="collapse-content bg-base-200 text-xl  text-bold group-focus:text-black">
+                        <span className='text-accent text-bold'>Express.js</span> <br />
+                        <p className='pb-2'>
                             Express.js is a popular web application framework for Node.js. It provides a minimalistic and flexible approach to building web applications and APIs. Express.js simplifies the process of handling HTTP requests, routing, middleware management, and rendering responses. It is known for its simplicity, lightweight nature, and vast ecosystem of plugins and middleware. Express.js allows developers to create robust and scalable web applications using JavaScript on the server-side.
                         </p>
                         <p className='divider'></p>
-                        <p className='py-2'>
-                            NestJS is a progressive Node.js framework for building efficient, reliable, and scalable server-side applications. It leverages TypeScript as its primary language, which adds static typing and enhanced tooling capabilities to JavaScript. NestJS follows the modular architecture pattern and is heavily inspired by Angular, a popular front-end framework. It provides a powerful set of features such as dependency injection, declarative routing, middleware, authentication, database integration, and more. NestJS aims to improve developer productivity and maintainability while enabling the creation of robust and scalable back-end applications.
+                        <span className='text-accent text-bold'>Next.js</span> <br />
+                        <p className='pb-2'>
+                            Nest.js is a progressive Node.js framework for building efficient, reliable, and scalable server-side applications. It leverages TypeScript as its primary language, which adds static typing and enhanced tooling capabilities to JavaScript. NestJS follows the modular architecture pattern and is heavily inspired by Angular, a popular front-end framework. It provides a powerful set of features such as dependency injection, declarative routing, middleware, authentication, database integration, and more. NestJS aims to improve developer productivity and maintainability while enabling the creation of robust and scalable back-end applications.
                         </p>
                     </div>
                 }
@@ -105,7 +112,7 @@ const Blog = () => {
             {/* Q-4 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-custom hover:bg-indigo-950  text-2xl text-white text-bold group-focus:text-secondary-content
+                    className="collapse-title bg-base-200 hover:bg-base-300 text-xl  text-bold group-focus:text-black
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -114,15 +121,14 @@ const Blog = () => {
                     <p>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-custom text-2xl text-white text-bold group-focus:text-secondary-content">
+                    isOpen && <div className="collapse-content bg-base-200 text-xl text-bold group-focus:text-black">
+                        <span className='text-accent text-bold'>MongoDB aggregate:</span> <br />
                         <p className='space-y-2 pt-3'>
                             In MongoDB, the aggregate method is used to perform advanced data aggregation operations on collections. It allows you to process and transform documents within a collection to retrieve aggregated results based on specified criteria.
                         </p>
                         <p className='divider'></p>
-                        <h3 className='py-2'>
-                            Here's a high-level overview of how the aggregate method works:
-                        </h3>
-                        <ul className='space-y-2'>
+                        <span className='text-accent  text-bold'>Here's a high-level overview of how the aggregate method works:</span> <br />
+                        <ul className='space-y-3'>
                             <li>
                                 1. Match Stage: This optional stage filters the documents in the collection based on specified criteria using the $match operator. Only the documents that match the criteria are passed to the next stage.
                             </li>

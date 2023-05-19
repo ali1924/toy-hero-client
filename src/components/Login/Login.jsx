@@ -1,9 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleImg from '../../assets/images/login/google.png'
 import { AuthContext } from '../Provider/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const Login = () => {
+    useEffect(() => {
+        document.title = "Login | Toy Hero";
+    }, [])
     const { user, signIn } = useContext(AuthContext);
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');

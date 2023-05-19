@@ -12,9 +12,34 @@ const Toys = () => {
             })
     }, [])
     // console.log(toys);
+
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const searchText = event.target.searchText.value;
+        console.log(searchText)
+        fetch(`http://localhost:5000/searchToy/${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setToys(data);
+        })
+    }
+
     return (
         <div className='mb-8'>
             <h2 className='text-3xl text-center py-3 font-bold'>Our Awesome Toys</h2>
+            <form onSubmit={handleSearch} className='flex justify-center my-2'>
+                <input
+                    type="text"
+                    name='searchText'
+                    placeholder="Type here"
+                    className="input input-bordered w-full max-w-xs"
+                />
+                <input
+                    className='btn btn-danger'
+                    type="submit" value="Search" />
+            </form>
             <div className="overflow-x-auto w-full">
                 <table className="table table-zebra w-full rounded-lg">
                     {/* head */}

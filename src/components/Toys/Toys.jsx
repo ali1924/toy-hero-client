@@ -36,7 +36,7 @@ const Toys = () => {
                 <input
                     type="text"
                     name='searchText'
-                    placeholder="Type here"
+                    placeholder="Type toy name"
                     className="input input-bordered w-full max-w-xs"
                 />
                 <input

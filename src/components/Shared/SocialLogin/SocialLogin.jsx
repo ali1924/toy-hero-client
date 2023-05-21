@@ -10,7 +10,7 @@ const SocialLogin = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 navigate(from, { replace: true });
             })
             .then(error => {
@@ -22,8 +22,8 @@ const SocialLogin = () => {
         <div>
             <div className="divider">OR</div>
             <div className='text-center'>
-                <button onClick={handleGoogleSignIn} className="btn btn-block">
-                    Sing Up with Google
+                <button onClick={handleGoogleSignIn} className="btn  btn-block">
+                    Login with Google
                 </button>
             </div>
         </div>

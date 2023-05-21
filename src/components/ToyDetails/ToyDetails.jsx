@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData} from 'react-router-dom';
 const ToyDetails = () => {
     const toyData = useLoaderData();
     console.log(toyData);
-    const { toyName, toyPhoto, sellerName, rating, quantity, price, email ,description} = toyData;
+    const { toyName, toyPhoto, sellerName, rating, quantity, price, email, description } = toyData;
+
     return (
         <div className='flex w-full justify-center bg-base-300 p-8 lg:p-16'>
             <div className='lg:flex gap-4 w-full rounded bg-white pb-3'>
-                <img className='lg:w-1/2 px-6 py-3 rounded' src={toyPhoto} alt="" />
+                <img className='lg:w-[626px] lg:h-[410px] px-6 py-3 rounded' src={toyPhoto} alt="" />
                 <div className='my-auto space-y-1 px-6'>
                     <h3>{toyName}</h3>
                     <p>Price: <span className='text-orange-400'>${price}</span></p>
@@ -31,6 +32,7 @@ const ToyDetails = () => {
             </div>
         </div>
     );
+
 };
 
 export default ToyDetails;

@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
-import './ErrorPage.css';
+import React from 'react';
+import error from '../../assets/images/404/404page.jpg';
 import { Link } from 'react-router-dom';
-const ErrorPage = () => {
-    useEffect(() => {
-        document.title = "ErrorPage| Toy Hero";
-    }, [])
+const Error = () => {
     return (
-        <div className='error-container'>
-            <h1>404</h1>
-            <p>Not Found</p>
-            <Link to='/' className='btn-goHome'>Go to Home</Link>
+        <div className='flex justify-center items-center h-[100vh]'
+
+            style={{
+                backgroundImage: `url(${error})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover"
+            }}>
+            <Link className='' to="/">
+                <button className='btn text-white bg-accent text-2xl font-extrabold'>
+                    Go to Home
+                </button></Link>
         </div>
     );
 };
 
-export default ErrorPage;
+export default Error;

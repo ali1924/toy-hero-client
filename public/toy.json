@@ -1,0 +1,50 @@
+[
+        {
+            "id": 1,
+            "toyName": "Red toy vintage car",
+            "sellerName": "Jordi Alba",
+            "subcategory": "Sports car",
+            "price": 22,
+            "email": "jordialba@gmail.com",
+            "toyPhoto": "https://i.ibb.co/1Mf75Hs/sports1.jpg",
+            "rating": 4.5,
+            "description": "Blue RC truck car (Radio-controlled car) on the asphalt ground. Off road car. This toy have some dust from children playing.",
+            "quantity": 10
+        },
+        {
+            "id": 2,
+            "toyName": "LEGO Technic Grand Prix",
+            "sellerName": "Ekaterina",
+            "subcategory": "Sports car",
+            "price":35,
+            "email": "ekaterina@gmail.com",
+            "toyPhoto": "https://i.ibb.co/WF4sB7d/sports2.jpg",
+            "rating": 6.9,
+            "description": " LEGO Technic Grand Prix Racer model on black background. Item 42000. It model motorized with 8293 LEGO Power Functions Motor Set. Studio shot. There are some dust on the tires.",
+            "quantity":8
+        },
+        {
+            "id": 3,
+            "toyName": "Red metal toy car",
+            "sellerName": "Noctilas",
+            "subcategory": "Sports car",
+            "price":39,
+            "email": "noctilus@gmail.com",
+            "toyPhoto": "https://i.ibb.co/RzPVmQL/sports3.jpg",
+            "rating": 5.9,
+            "description": "Red metal toy car with driverHandmade car toy free of trademark",
+            "quantity":3
+        },
+        {
+            "id": 4,
+            "toyName": "Abandoned toy car",
+            "sellerName": "Wilscap",
+            "subcategory": "Regular Car",
+            "price":23,
+            "email": "wilscap@gmail.com",
+            "toyPhoto": "https://i.ibb.co/MRQ374W/regular1.jpg",
+            "rating": 4.9,
+            "description": "Abandoned toy car are very nice toy car for children.",
+            "quantity":15
+        }
+]

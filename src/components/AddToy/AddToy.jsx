@@ -1,7 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AddToy = () => {
+
+    <option selected value="Sports car">Sports car</option>
+    const [subcategory, setSubCategory] = useState('Sports car')
+    const handleSubCategory = (event) => {
+        setSubCategory(event.target.value)
+    }
     useEffect(() => {
         document.title = "Add a Toy | Toy Hero";
     }, [])
@@ -9,6 +16,7 @@ const AddToy = () => {
     console.log(user);
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleAddToy = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -16,8 +24,7 @@ const AddToy = () => {
         const email = form.email.value;
         const toyName = form.toyName.value;
         const toyPhoto = form.toyPhoto.value;
-        const subcategory = form.subcategory.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const quantity = form.quantity.value;
         const rating = form.rating.value;
         const description = form.description.value;
@@ -32,7 +39,7 @@ const AddToy = () => {
             rating,
             description,
         }
-        fetch('http://localhost:5000/add-toy', {
+        fetch('https://assignment-11-server-beige-three.vercel.app/add-toy', {
             method: "POST",
             headers: {
                 'content-type':'application/json',
@@ -41,7 +48,11 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
+                if (data.insertedId) {
+                    alert('Added Successfully');
+                    navigate('/my-toys');
+                }
         })
     }
     return (
@@ -49,7 +60,7 @@ const AddToy = () => {
             <div className="hero-content lg:w-[80%] w-[90%]">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 sm:min-w-full lg:min-w-full">
                     <div className="card-body sm:min-w-full lg:min-w-full">
-                        <h1 className="text-3xl text-center font-bold">Please give some information</h1>
+                        <h1 className="text-xl lg:text-3xl text-center font-bold">Please give some information</h1>
 
                         <span className='text-2xl text-green-500'>{success}</span>
                         <span className='text-2xl text-red-600'>{error}</span>
@@ -91,12 +102,18 @@ const AddToy = () => {
                                     />
                                 </div>
                                 <div className="form-control lg:mb-3 mb-3">
-                                    <input
+                                    {/* <input
                                         type="text"
                                         name='subcategory'
                                         placeholder="Sub-category"
                                         className="input input-bordered"
-                                    />
+                                        required
+                                    /> */}
+                                    <select className="input input-bordered" onClick={handleSubCategory}>
+                                        <option selected value="Sports car">Sports car</option>
+                                        <option value="Regular Car">Regular Car</option>
+                                        <option value="Police car">Police car</option>
+                                    </select>
                                 </div>
                                 <div className="form-control lg:ml-2 lg:mb-3 mb-3">
                                     <input
@@ -125,7 +142,7 @@ const AddToy = () => {
                             </div>
                             <div className="form-control lg:mx-3 lg:mb-3 mb-3">
                                 <textarea
-                                    className="textarea textarea-primary h-24" placeholder="Description"
+                                    className="textarea input-border h-24" placeholder="Description"
                                     name='description'
                                 ></textarea>
                             </div>
@@ -133,7 +150,7 @@ const AddToy = () => {
                                 <input
                                     type="submit"
                                     value="Add a Toy"
-                                    className="btn hover:bg-orange-400 bg-[#FF3811]"
+                                    className="btn hover:bg-accent-focus bg-accent"
                                 />
                             </div>
                         </form>

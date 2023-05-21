@@ -12,7 +12,7 @@ const MyToyUpdate = () => {
     const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const quantity = form.quantity.value;
         const description = form.description.value;
         const toyInfo = {
@@ -20,7 +20,7 @@ const MyToyUpdate = () => {
             quantity,
             description,
         }
-        fetch(`http://localhost:5000/updateToy/${id}`, {
+        fetch(`https://assignment-11-server-beige-three.vercel.app/updateToy/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -29,9 +29,10 @@ const MyToyUpdate = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
-                    navigate('/my-toys'); 
+                    alert('Updated successfully');
+                    navigate('/my-toys');
                 }
             })
 
@@ -45,7 +46,7 @@ const MyToyUpdate = () => {
                             <h1 className="text-3xl text-center font-bold">Please update your information</h1>
                             <form onSubmit={handleUpdate} className='space-y-3 w-full'>
                                 <div className='lg:grid lg:grid-cols-2 lg:g-2 lg:m-3'>
-                                    <div className="form-control lg:ml-2 lg:mb-3 mb-3">
+                                    <div className="form-control lg:ml-2 lg:mb-3 mb-3 mr-2">
                                         <input
                                             type="text"
                                             name='price'
@@ -66,7 +67,7 @@ const MyToyUpdate = () => {
                                 </div>
                                 <div className="form-control lg:mx-3 lg:mb-3 mb-3">
                                     <textarea
-                                        className="textarea textarea-primary h-24" placeholder="Description"
+                                        className="textarea  input-bordered h-24" placeholder="Description"
                                         name='description'
                                         defaultValue={myToy?.description}
                                     ></textarea>
@@ -75,7 +76,7 @@ const MyToyUpdate = () => {
                                     <input
                                         type="submit"
                                         value="Submit"
-                                        className="btn hover:bg-orange-400 bg-[#FF3811]"
+                                        className="btn hover:bg-accent-focus bg-accent"
                                     />
                                 </div>
                             </form>

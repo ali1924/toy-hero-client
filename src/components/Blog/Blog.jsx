@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import './Blog.css';
 const Blog = () => {
     useEffect(() => {
-        document.title = "Blog | Toy Hero";
+        document.title = "Toy Hero | Blog";
     }, [])
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className='space-y-2 lg:space-y-3 bg-base-100 lg:px-28 px-2 pb-12'>
-            <h1 className='xl-4xl lg:text-5xl text-center text-bold rounded-md lg:py-5'>Frequently Asked Questions</h1>
+        <div className='space-y-2 lg:space-y-3 bg-base-200 lg:px-28 px-2 pb-12 pt-3'>
+            <h1 className='text-2xl lg:text-5xl text-center text-bold rounded-md lg:py-5'>Frequently Asked Questions</h1>
             {/* Q---1 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-base-200 hover:bg-base-300 text-xl group-focus:text-text-black text-bold 
+                    className="collapse-title bg-base-100 hover:bg-base-300 text-xl group-focus:text-text-black text-bold 
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -20,7 +20,7 @@ const Blog = () => {
                     <p className='w-[8%] text-end'>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-base-200 text-xl text-black text-bold group-focus:text-text-black">
+                    isOpen && <div className="collapse-content bg-base-100 text-xl text-black text-bold group-focus:text-text-black">
                         <p>
                             <span className='text-accent text-bold'>Access Token:</span> <br />
                              An access token is a credential that is used to access protected resources or perform certain actions on behalf of an authenticated user.The access token is included in each request to the server's protected resources to prove the user's identity and permissions. It contains information such as the user's identity and the granted permissions or scopes.
@@ -36,7 +36,7 @@ const Blog = () => {
             {/* Q-2 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-base-200  hover:bg-base-300 text-xl  text-bold group-focus:text-black
+                    className="collapse-title bg-base-100  hover:bg-base-300 text-xl  text-bold group-focus:text-black
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -45,7 +45,7 @@ const Blog = () => {
                     <p className='w-[8%] text-end'>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-base-200 text-xl text-bold group-focus:text-black">
+                    isOpen && <div className="collapse-content bg-base-100 text-xl text-bold group-focus:text-black">
                         <span className='text-accent text-bold'>SQL</span> <br />
                         <ul className='space-y-3'>
                             <li>
@@ -87,7 +87,7 @@ const Blog = () => {
             {/* Q-3 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-base-200 hover:bg-base-300 text-xl  text-bold group-focus:text-black
+                    className="collapse-title bg-base-100 hover:bg-base-300 text-xl  text-bold group-focus:text-black
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -96,7 +96,7 @@ const Blog = () => {
                     <p className='w-[8%] text-end'>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-base-200 text-xl  text-bold group-focus:text-black">
+                    isOpen && <div className="collapse-content bg-base-100 text-xl  text-bold group-focus:text-black">
                         <span className='text-accent text-bold'>Express.js</span> <br />
                         <p className='pb-2'>
                             Express.js is a popular web application framework for Node.js. It provides a minimalistic and flexible approach to building web applications and APIs. Express.js simplifies the process of handling HTTP requests, routing, middleware management, and rendering responses. It is known for its simplicity, lightweight nature, and vast ecosystem of plugins and middleware. Express.js allows developers to create robust and scalable web applications using JavaScript on the server-side.
@@ -112,7 +112,7 @@ const Blog = () => {
             {/* Q-4 */}
             <div tabIndex={0} className="collapse group space-y-1 rounded-md">
                 <div
-                    className="collapse-title bg-base-200 hover:bg-base-300 text-xl  text-bold group-focus:text-black
+                    className="collapse-title bg-base-100 hover:bg-base-300 text-xl  text-bold group-focus:text-black
                     flex justify-between
                     "
                     onClick={()=>setIsOpen(!isOpen)}
@@ -121,7 +121,7 @@ const Blog = () => {
                     <p>{ isOpen?'Close':'Open'}</p>
                 </div>
                 {
-                    isOpen && <div className="collapse-content bg-base-200 text-xl text-bold group-focus:text-black">
+                    isOpen && <div className="collapse-content bg-base-100 text-xl text-bold group-focus:text-black">
                         <span className='text-accent text-bold'>MongoDB aggregate:</span> <br />
                         <p className='space-y-2 pt-3'>
                             In MongoDB, the aggregate method is used to perform advanced data aggregation operations on collections. It allows you to process and transform documents within a collection to retrieve aggregated results based on specified criteria.

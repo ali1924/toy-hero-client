@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element:<Home></Home>
+                element: <Home></Home>
             },
             {
                 path: '/toys',
@@ -28,11 +28,11 @@ const router = createBrowserRouter([
             {
                 path: '/toys/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-beige-three.vercel.app/toys/${params.id}`)
             },
             {
                 path: 'add-toy',
-                element:<AddToy></AddToy>
+                element: <AddToy></AddToy>
             },
             {
                 path: 'update-toy/:id',
@@ -40,11 +40,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'blog',
-                element:<Blog></Blog>
+                element: <Blog></Blog>
             },
             {
                 path: '/my-toys',
-                element:<MyToys></MyToys>
+                element: <MyToys></MyToys>
 
             }
         ]
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
     },
     {
         path: '*',
-        element:<ErrorPage></ErrorPage>
+        element: <ErrorPage></ErrorPage>
     }
 ])
 

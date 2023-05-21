@@ -1,17 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import googleImg from '../../assets/images/login/google.png'
 import { AuthContext } from '../Provider/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import NavBar from '../Shared/NavBar/NavBar';
 import Footer from '../Shared/Footer/Footer';
 const Login = () => {
     useEffect(() => {
-        document.title = "Login | Toy Hero";
+        document.title = " Toy Hero | Login";
     }, [])
     const { user, signIn } = useContext(AuthContext);
-    const [success, setSuccess] = useState('');
-    const [error, setError] = useState('');
     // private route
     const location = useLocation();
     const navigate = useNavigate();
@@ -23,22 +20,15 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log( email, password);
-
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 // console.log(user);
-                setSuccess('Successfully Login');
-                setError('');
                 navigate(from, { replace: true });
 
             })
             .catch(error => {
                 const errorMessage = error.message;
-                // console.log(errorMessage);
-                setError(errorMessage);
-                setSuccess('');
             })
 
     }
@@ -57,10 +47,6 @@ const Login = () => {
                                 <Link to='/register'> Register</Link>
                             </span>
                         </p>
-
-                        <span className='text-2xl text-green-500'>{success}</span>
-                        <span className='text-2xl text-red-600'>{error}</span>
-
                         <form onSubmit={handleLogin} className='space-y-3 w-full'>
                             <div className="form-control">
                                 <input

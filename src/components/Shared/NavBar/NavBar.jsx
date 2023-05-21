@@ -68,12 +68,12 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end text-2xl">
-                <div className="tooltip hover:tooltip-open tooltip-left text-white text-xl font-medium hover:text-accent" data-tip={user?.displayName}>
+                <div className="tooltip hover:tooltip-open tooltip-left" data-tip={user?.displayName}>
                     {
                         user && <div className="avatar">
                             <div className="w-14 h-14 rounded-full tooltip hover:tooltip-open tooltip-left">
                                 <img
-                                    src="https://i.ibb.co/R6Z2nFM/55.jpg"
+                                    src={user?.photoURL}
                                 />
                             </div>
                         </div>
